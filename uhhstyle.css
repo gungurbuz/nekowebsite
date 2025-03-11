@@ -1,0 +1,42 @@
+@font-face {
+	font-family: 'CMU Serif';
+	src: url('assets/fonts/cmunrm.ttf') format('ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	background-color: powderblue;
+	font-family: 'CMU Serif', serif;
+	text-align: center;
+}
+
+h1 {
+	font-family: 'CMU Serif', serif;
+	text-align: center;
+}
+
+.container {
+	display: flex;
+	height: 100vh;
+}
+
+.column {
+	flex: 1;
+	padding: 0;
+	text-align: center;
+}
+
+#column1 {
+	background-color: lightcoral;
+}
+
+#column2 {
+	background-color: lightblue;
+}
+
+#column3 {
+	background-color: lightgreen;
+}
+
+
