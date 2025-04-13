@@ -39,22 +39,3 @@ h1 {
 	background-color: lightgreen;
 }
 
-.two-column-container {
-	display: flex;
-	height: 100vh;
-}
-
-.column {
-	flex: 1; /* Equal width for both columns */
-	padding: 20px;
-	text-align: center;
-}
-
-#left-column {
-	background-color: lightgray;
-}
-
-#right-column {
-	background-color: lightyellow;
-}
-
