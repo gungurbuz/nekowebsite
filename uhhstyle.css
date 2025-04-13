@@ -32,6 +32,7 @@ body {
 	flex-direction: row;
 	justify-content: center;
 	gap: 4px;
+	background: #eee url();
 }
 
 
@@ -45,6 +46,22 @@ body {
 
 .content {
 	width: 75%;
+	background: #eee url();
+	margin: 0;
+	padding: 0;
+	border: 0 solid #666;
+}
+
+.contentfull {
+	width: 100%;
+	background: #eee url();
+	margin: 0;
+	padding: 0;
+	border: 0 solid #666;
+}
+
+.window {
+	width: 100%;
 	background: #eee url();
 	margin: 0;
 	padding: 0;
