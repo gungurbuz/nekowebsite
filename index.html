@@ -8,13 +8,19 @@
 	<script src="https://unpkg.com/webamp@1.4.0/built/webamp.bundle.min.js"></script>
 	<meta charset="UTF-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta http-equiv='cache-control' content='no-cache'>
+	<meta http-equiv='expires' content='0'>
+	<meta http-equiv='pragma' content='no-cache'>
 	<title>kaiswonderland!</title>
 	<link href="uhhstyle.css" rel="stylesheet">
+	<link href="crt.css" rel="stylesheet">
 </head>
 <body>
 
 
 <div class="container">
+	<!--crt effect div-->
+	<!--<div class="crt">-->
 
 
 	<div class="header-container">
@@ -27,10 +33,9 @@
 
 	<div class="navigation">
 		<a class="navi" href="stuffilike.html">things i like</a>
-		<a class="navi" href="">link three</a>
-		<a class="navi" href="">link four</a>
-		<a class="navi" href="">link five</a>
-		<a class="navi" href="https://kaiswonderland.atabook.org/">guestbook</a>
+		<a class="navi" href="">empty link</a>
+		<a class="navi" href="">empty link</a>
+		<a class="navi" href="">empty link</a>
 	</div>
 
 	<div class="horizontal-container">
@@ -66,6 +71,7 @@
 				<img src="assets/buttons/buttonYuri.png">
 				<img src="assets/buttons/rainbow_bev.gif">
 				<a href="https://pawpyrus.art"><img src="https://pawpyrus.art/graphics/siteButton.gif" height="31px" width="88px"></a>
+				<a href="https://guh.nekoweb.org/" target="_blank"><img src="https://guh.nekoweb.org/myguhsite.gif"></a>
 			</div>
 
 
@@ -96,53 +102,70 @@
 			</div>
 
 			<div class="title">
+				guestbook <img src="assets/window-buttons.png" class="img-right">
+			</div>
+			<div class="box">
+				<iframe
+						src="https://kaiswonderland.atabook.org/"
+						title="https://kaiswonderland.atabook.org/"
+						style="display:block;width:100%;height:500px;border:none;">
+				</iframe>
+			</div>
+
+			<div class="title">
 				johnvertisement
 			</div>
+
 			<div class="box">
 				<p>
 					<iframe src="https://john.citrons.xyz/embed?ref=kaiswonderland.nekoweb.org" style="margin-left:auto;display:block;margin-right:auto;max-width:732px;width:100%;height:94px;border:none;"></iframe>
 				</p>
 			</div>
+
 		</div>
+		<br>
+
+
 	</div>
-	<br>
 	<p> Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> modified by
 		<a href="http://github.com/gungurbuz" target="_blank">me</a><br>
 
+		<!--
 
-</div>
+		<div style="width:40px; height:40px; position:absolute; bottom:0px; left:0px;">
+			<div id="winamp-container"></div>
+			<script>
+				const Winamp = window.Webamp;
+				// All configuration options are optional.
+				const webamp = new Webamp({
+					// Optional.
+					initialTracks: [
 
+						/*{
+							metaData: {
+								artist: "Mitski",
+								title: "Nobody",
+							},
+							url: "assets/nobody.mp3",
+						},
+		*/
+					],
 
-<!--
-
-<div style="width:40px; height:40px; position:absolute; bottom:0px; left:0px;">
-	<div id="winamp-container"></div>
-	<script>
-		const Winamp = window.Webamp;
-		// All configuration options are optional.
-		const webamp = new Webamp({
-			// Optional.
-			initialTracks: [
-
-				/*{
-					metaData: {
-						artist: "Mitski",
-						title: "Nobody",
+					initialSkin: {
+						url: "assets/xp.wsz"
 					},
-					url: "assets/nobody.mp3",
-				},
-*/
-			],
 
-			initialSkin: {
-				url: "assets/xp.wsz"
-			},
+				});
+				webamp.renderWhenReady(document.getElementById('winamp-container'));
+			</script>
+		</div>
+		-->
+		<!--crt effect div-->
+		<!--</div>-->
 
-		});
-		webamp.renderWhenReady(document.getElementById('winamp-container'));
-	</script>
+
 </div>
--->
+
 </body>
 </html>
             
