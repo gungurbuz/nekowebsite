@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link href="https://fonts.googleapis.com" rel="preconnect">
+	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+	<link href="http://fonts.googleapis.com/css?family=Megrim|Lato" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>stuff i like</title>
 	<link rel="stylesheet" href="uhhstyle.css">
+	<script src="stuffilike.js"></script>
 </head>
 <body>
 
-<div class="container" style="width: 40%">
+<div class="container" style="">
 	<div class="header-container">
 		<div class="header">kaiswonderland</div>
 	</div>
@@ -22,57 +27,120 @@
 		<a class="navi" href="index.html">back</a>
 	</div>
 	<div class="horizontal-container">
-		<div class="window">
-			<div class="title">
-				games <img src="assets/window-buttons.png" class="img-right">
-			</div>
-			<div class="box">
-				i mainly play zenless zone zero, and sometimes honkai star rail and genshin impact. outside of gachas, i play valorant and war thunder.
-				<br>
-				i am ALL about shipping, see some of my favorites below!
-				also, add me! <br>
-				zzz: 1501350671 <br>
-				hsr: 717996388 <br>
-				genshin: 742146543 <br>
+		<div class="left">
+			<div class="window">
+				<div class="title">
+					games <img src="assets/window-buttons.png" class="img-right">
+				</div>
+				<div class="box">
+					i mainly play zenless zone zero, and sometimes honkai star rail and genshin impact. outside of gachas, i play valorant and war thunder.
+					<br>
+					i am ALL about shipping, see some of my favorites below!
+					also, add me! <br>
+					zzz: 1501350671 <br>
+					hsr: 717996388 <br>
+					genshin: 742146543 <br>
+				</div>
 			</div>
 		</div>
-		<div class="window">
-			<div class="title">ships <img src="assets/window-buttons.png" class="img-right"></div>
-			<div class="box">
-				zenless zone zero:
-				zhuqing
-				zhuyabi
-				zhubelle (can you guys tell i really like zhu yuan)
-				miyanagi
-				astralyn
-				purnice
-				anby x nicole
-				janagi
-				<br>
-				hsr:
-				stellefly
-				robifly
-				starch
-				fuqing
-				bronseele
-				firefly x therapy
-				genshin:
-				eimiko
-				eisara
-				mikosara
-				kokosara
-				clorivia
-				yantao
-				shenjin
-				charlotte x lynette
-				kirara x everyone
-				lumine x ayaka
-				lumine x lynette
-				pixelshark (only hetship you will ever see)
+		<div class="content">
+
+			<div class="window">
+				<div class="title">ships <img src="assets/window-buttons.png" class="img-right"></div>
+				<div class="box">
+					zenless zone zero:
+					zhuqing
+					zhuyabi
+					zhubelle (can you guys tell i really like zhu yuan)
+					miyanagi
+					astralyn
+					purnice
+					anby x nicole
+					janagi
+					<br>
+					hsr:
+					stellefly
+					robifly
+					starch
+					fuqing
+					bronseele
+					firefly x therapy
+					genshin:
+					eimiko
+					eisara
+					mikosara
+					kokosara
+					clorivia
+					yantao
+					shenjin
+					charlotte x lynette
+					kirara x everyone
+					lumine x ayaka
+					lumine x lynette
+					pixelshark (only hetship you will ever see)
+				</div>
 			</div>
+			<div class="window">
+				<div class="title">enka.network profiles <img src="assets/window-buttons.png" class="img-right">
+				</div>
+				<div class="box">
+
+
+					<div class="navigation">
+						<a class="navi" onclick="show('zzz')" onmouseover="this.style.cursor='pointer'">
+							zzz
+						</a>
+						<a class="navi" onclick="show('hsr')" onmouseover="this.style.cursor='pointer'">
+							hsr
+						</a>
+						<a class="navi" onclick="show('genshin')" onmouseover="this.style.cursor='pointer'">
+							genshin
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div id="enkapages">
+
+	</div>
+	<div class="window" id="zzz" style="display: none">
+		<div class="title">
+			zzz <img src="assets/window-buttons.png" class="img-right">
+		</div>
+		<div class="box">
+			<iframe src="https://enka.network/u/kaiswonderland/1PJx0w/1201/6394864/?embed" style="width: 1100px; height: 700px"
+			        loading="lazy">
+			</iframe>
 		</div>
 	</div>
+	<div class="window" id="hsr" style="display: none">
+		<div class="title">
+			hsr <img src="assets/window-buttons.png" class="img-right">
+		</div>
+		<div class="box">
+			<iframe src="https://enka.network/u/kaiswonderland/1vWQUz/1224/4014811/?embed" style="width: 1100px; height: 700px"
+			        loading="lazy">
+			</iframe>
+		</div>
+	</div>
+	<div class="window" id="genshin" style="display: none">
+		<div class="title">
+			genshin <img src="assets/window-buttons.png" class="img-right">
+		</div>
+		<div class="box">
+			<iframe src="https://enka.network/u/kaiswonderland/2Zc6nG/10000023/4014826/?embed" style="width: 1100px; height: 700px"
+			        loading="lazy">
+			</iframe>
+		</div>
+	</div>
+	<br>
+	<p> Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> modified by
+		<a href="http://github.com/gungurbuz" target="_blank">me</a><br>
 </div>
+
 
 </body>
 </html>
