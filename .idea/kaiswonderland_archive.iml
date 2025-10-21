@@ -12,5 +12,7 @@
     <orderEntry type="library" name="widget" level="application" />
     <orderEntry type="library" name="webamp" level="application" />
     <orderEntry type="library" name="ring" level="application" />
+    <orderEntry type="library" name="ring" level="application" />
+    <orderEntry type="library" name="webamp" level="application" />
   </component>
 </module>
