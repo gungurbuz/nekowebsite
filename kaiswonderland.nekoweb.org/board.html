@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>kaiswonderland: menu</title>
+	<link rel="stylesheet" href="board.css">
+	<script src="board.js" defer></script>
+</head>
+<body>
+
+<main class="board">
+	<header class="board-head">
+		<h1 class="stop">Kaiswonderland</h1>
+		<div class="screen screen-clock">
+			<div class="clock" id="clock" aria-label="current time">--<span class="colon">:</span>--</div>
+		</div>
+	</header>
+
+	<nav class="screen screen-departures" aria-label="site menu">
+		<ul class="departures">
+			<li><a class="row" href="stuffilike.html"><span class="line">S1</span><span class="dest">things i like</span><span class="when flash">sofort</span></a></li>
+			<li><a class="row" href="trias.html"><span class="line">S2</span><span class="dest">am i late?</span><span class="when">in 5 min</span></a></li>
+			<li><a class="row" href="trips.html"><span class="line">S51</span><span class="dest">my trips</span><span class="when">in 8 min</span></a></li>
+			<li><a class="row" href=""><span class="line">4</span><span class="dest flash" data-flash="entfällt">about me</span> <span class="when" id="last-when"></span></a></li>
+		</ul>
+	</nav>
+</main>
+
+<p class="board-foot"><a href="index.html">&larr; back to the main page</a></p>
+
+</body>
+</html>

@@ -1,0 +1,258 @@
+/* Karlsruhe tram-stop display theme.
+   Standalone: do NOT load this together with uhhstyle.css. */
+
+@font-face {
+	font-family: "Doto Board";
+	src: url("assets/fonts/Doto-KVV.woff2") format("woff2");
+	font-weight: 800;
+	font-style: normal;
+	font-display: block;
+}
+
+/* Stop name font. Put bahnschrift.ttf in your assets/ folder. */
+@font-face {
+	font-family: "Bahnschrift Board";
+	src: url("assets/fonts/bahnschrift.ttf") format("truetype");
+	font-weight: 300 700;   /* Bahnschrift is a variable font, so one file covers these weights */
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--led: #ff9d2e;                    /* the amber of the lit dots */
+	--led-glow: rgba(255, 157, 46, .55);
+	--board: #09090a;                  /* text colour on a highlighted row */
+	--panel: #141517;                  /* the plate around the screens */
+	--screen: #030303;                 /* the black glass of the screens */
+	--frame: #2b2d30;                  /* the metal casing */
+	--label: #c9ccd1;                  /* stop name colour */
+	--sky: #14171b;                    /* page background */
+	--pad: clamp(1rem, 4vw, 2.2rem);   /* plate margin: edge to clock, and clock to departures */
+	--screen-pad-x: 1.2rem;            /* side padding inside the departures screen */
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.2rem;
+	padding: 1rem;
+	background: var(--sky);
+	color: var(--led);
+	font-family: "Doto Board", ui-monospace, monospace;
+	font-weight: 800;
+}
+
+/* ---------- The board ---------- */
+.board {
+	position: relative;
+	width: min(94vw, 800px);
+	padding: var(--pad);   /* wide plate margin around the screens */
+	background: var(--panel);
+	border: 10px solid var(--frame);
+	border-radius: 6px;
+	box-shadow:
+		inset 0 0 0 1px rgba(255, 255, 255, .04),
+		0 24px 48px rgba(0, 0, 0, .55);
+	overflow: hidden;
+}
+
+/* ---------- Screens: the only places with the LED dot effect ---------- */
+.screen {
+	position: relative;
+	background: var(--screen);
+	border-radius: 0;
+	box-shadow:
+		inset 0 0 18px #000,
+		0 0 0 2px #0a0a0b,
+		0 0 0 3px #2a2c2f;
+	overflow: hidden;
+}
+
+/* The dot grid that makes the text look like separate LEDs.
+   Lower the .35 for a smoother look, raise it for more visible dots. */
+.screen::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: radial-gradient(circle at center, transparent 0 40%, rgba(0, 0, 0, .55) 62%);
+	background-size: 4px 4px;
+	pointer-events: none;
+}
+
+.screen-clock {
+	padding: .45rem .9rem;
+}
+
+.screen-departures {
+	padding: 1rem var(--screen-pad-x);
+}
+
+/* ---------- Header: stop name + clock ---------- */
+.board-head {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;   /* stop name sits low, level with the bottom of the clock box */
+	gap: 1rem;
+	margin-bottom: var(--pad);   /* same distance as the edge-to-clock margin */
+}
+
+.stop {
+	margin: 0 0 0;
+	font-family: "Bahnschrift Board", "Helvetica Neue", Arial, sans-serif;
+	font-weight: 300;
+	font-size: clamp(1.3rem, 5vw, 2.1rem);
+	line-height: 1;
+	padding: 0 0 0;   /* left edge lines up with the line numbers below */
+	letter-spacing: .02em;
+	color: var(--label);
+}
+
+.clock {
+	font-size: clamp(1.6rem, 6.5vw, 2.6rem);
+	line-height: 1;
+	white-space: nowrap;
+}
+
+/* ---------- Departure rows ---------- */
+.departures {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	word-spacing: -12px;
+}
+
+/* Each row is a link to a page */
+.row,
+.row:link,
+.row:visited {
+	display: grid;
+	grid-template-columns: 3ch 1fr auto;
+	gap: 3rem;
+	align-items: baseline;
+	font-size: clamp(1.1rem, 4.2vw, 1.7rem);
+	line-height: 1.55;
+	padding: 0 .5rem;
+	margin: 0 -.5rem;
+	color: var(--led);
+	text-decoration: none;
+}
+
+/* Hover/keyboard focus: the row lights up solid, like a selected line */
+.row:hover,
+.row:focus-visible {
+	background: var(--led);
+	color: var(--board);
+	text-shadow: none;
+	outline: none;
+}
+
+.row:hover .line,
+.row:focus-visible .line {
+	opacity: 1;
+}
+
+.line {
+	opacity: .85;
+}
+
+.dest {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.when {
+	text-align: right;
+	white-space: nowrap;
+}
+
+/* ---------- LED glow (applies to every lit element) ---------- */
+.clock,
+.row,
+.board-foot a {
+	text-shadow:
+		0 0 6px var(--led-glow),
+		0 0 16px rgba(255, 120, 0, .25);
+}
+
+/* Blinking colon in the clock */
+.colon {
+	animation: blink 2s steps(1) infinite;
+}
+
+@keyframes blink {
+	0%   { opacity: 1; }
+	50%  { opacity: .15; }
+}
+
+/* "sofort" flashes: alternates between its text and the data-flash input */
+.flash {
+	position: relative;
+	animation: flash-text 2s steps(1) infinite;
+}
+
+.flash[data-flash]::after {
+	content: attr(data-flash);
+	position: absolute;
+	left: 0;
+	top: 0;
+	white-space: nowrap;
+	visibility: hidden;
+	animation: flash-alt 2s steps(1) infinite;
+}
+
+@keyframes flash-text {
+	0%   { visibility: visible; }
+	50%  { visibility: hidden; }
+}
+
+@keyframes flash-alt {
+	0%   { visibility: hidden; }
+	50%  { visibility: visible; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.colon,
+	.flash,
+	.flash[data-flash]::after {
+		animation: none;
+	}
+}
+
+@keyframes flash {
+	0%   { opacity: 1; }
+	50%  { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.colon,
+	.flash {
+		animation: none;
+	}
+}
+
+/* ---------- Link below the board ---------- */
+.board-foot {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.board-foot a {
+	color: var(--led);
+	text-decoration: underline dotted;
+	text-underline-offset: 4px;
+}
+
+.board-foot a:hover,
+.board-foot a:focus-visible {
+	color: #ffc47a;
+	text-decoration-style: solid;
+}

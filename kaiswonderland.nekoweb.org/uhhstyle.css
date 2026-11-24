@@ -5,15 +5,27 @@ body {
 	align-items: center;
 	min-height: 100vh; /* Full viewport height */
 	margin: 0; /* Remove default body margin */
-	background-image: url();
 	background-color: #f5f5f5;
-	font-family: 'Pixelify sans', lato, calibri, Verdana, Arial, Helvetica, sans-serif;
+	font-family: 'Pixelify Sans', Lato, Calibri, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	font-weight: 400;
 	text-shadow: 0 0 1px #bbb;
 	color: #222;
 	letter-spacing: 1px;
-	line-height: 13px;
+	line-height: 1.4; /* was 13px, which was tight for 12px text */
+}
+
+/* Makes the `hidden` attribute always win (used by the tabs in stuffilike.html) */
+[hidden] {
+	display: none !important;
+}
+
+img {
+	max-width: 100%;
+}
+
+iframe {
+	max-width: 100%;
 }
 
 
@@ -32,13 +44,13 @@ body {
 	flex-direction: row;
 	justify-content: center;
 	gap: 4px;
-	background: #eee url();
+	background: #eee;
 }
 
 
 .left {
 	width: 25%;
-	background: #eee url();
+	background: #eee;
 	margin: 0;
 	padding: 0;
 	border: 0 solid #666;
@@ -46,7 +58,7 @@ body {
 
 .content {
 	width: 75%;
-	background: #eee url();
+	background: #eee;
 	margin: 0;
 	padding: 0;
 	border: 0 solid #666;
@@ -54,7 +66,7 @@ body {
 
 .contentfull {
 	width: 100%;
-	background: #eee url();
+	background: #eee;
 	margin: 0;
 	padding: 0;
 	border: 0 solid #666;
@@ -62,7 +74,7 @@ body {
 
 .window {
 	width: auto;
-	background: #eee url();
+	background: #eee;
 	margin: 0;
 	padding: 0;
 	border: 0 solid #666;
@@ -85,7 +97,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	vertical-align: center;
 	align-items: center;
 	text-align: center;
 	width: 100%;
@@ -116,7 +127,6 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	vertical-align: center;
 	align-items: center;
 	text-align: center;
 	width: 100%;
@@ -152,25 +162,125 @@ body {
 	flex-wrap: wrap;
 }
 
-.navi {
-	display: inline-block;
-	flex-direction: row;
-	flex-wrap: wrap;
-	font: 9px arial black, calibri;
-	border-left: 2px solid #666;
-	border-right: 2px solid #aaa;
-	border-bottom: 2px solid #928F88;
-	border-top: 2px solid #666;
-	padding: 5px;
-	min-width: 80px;
+/* ---------- Links: look like links ---------- */
+a:link {
+	color: #2F498C;
+	text-decoration: underline;
+}
+
+a:visited {
+	color: #5a3d8a;
+}
+
+a:hover {
+	color: #444;
+	text-decoration: none;
+}
+
+a:active {
+	color: #c00000;
+}
+
+a:focus-visible {
+	outline: 2px dotted #2F498C;
+	outline-offset: 2px;
+}
+
+/* Links inside the nav bar: still plain links, just spaced out */
+.navigation {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	text-align: center;
-	background: #D4D0C8;
+	width: 100%;
+	box-sizing: border-box;
+	background: #DDDAD3;
+	flex-wrap: wrap;
+	gap: 6px;        /* space between the buttons */
+	padding: 6px;    /* space between the buttons and the edge of the bar */
+}
+
+
+/* ---------- Buttons (<button class="navi"> and <a class="navi">) ---------- */
+.navi,
+a.navi:link,
+a.navi:visited {
+	display: inline-block;
+	box-sizing: border-box;
+	font: 9px "Arial Black", Calibri, Arial, sans-serif;
+	line-height: normal;
 	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center;
+	letter-spacing: 1px;
+	color: #2F498C;
+	background: #D4D0C8;
+	padding: 5px 10px;
+	min-width: 80px;
+	cursor: pointer;
+	/* raised look: light top-left, dark bottom-right */
+	border-top: 2px solid #fff;
+	border-left: 2px solid #fff;
+	border-right: 2px solid #666;
+	border-bottom: 2px solid #666;
+}
+
+.navi:hover,
+a.navi:hover {
+	background: #dcd8d0;
+	color: #444;
+}
+
+/* pressed in: while clicking, and for the selected tab */
+.navi:active,
+a.navi:active,
+.navi[aria-pressed="true"] {
+	background: #c7c3ba;
+	border-top-color: #666;
+	border-left-color: #666;
+	border-right-color: #fff;
+	border-bottom-color: #fff;
+	padding: 6px 9px 4px 11px; /* nudges the text down-right like a real press */
+}
+
+.navi:focus-visible {
+	outline: 1px dotted #000;
+	outline-offset: -5px;
+}
+
+.navi:disabled {
+	color: #888;
+	cursor: not-allowed;
+}
+
+button.navi:hover {
+	background: #dcd8d0;
+}
+
+/* pressed in: while clicking, and for the selected tab */
+button.navi:active,
+button.navi[aria-pressed="true"] {
+	background: #c7c3ba;
+	border-top-color: #666;
+	border-left-color: #666;
+	border-right-color: #fff;
+	border-bottom-color: #fff;
+	padding: 6px 9px 4px 11px; /* nudges the text down-right like a real press */
+}
+
+button.navi:focus-visible {
+	outline: 1px dotted #000;
+	outline-offset: -5px;
+}
+
+button.navi:disabled {
+	color: #888;
+	cursor: not-allowed;
 }
 
 
 .title {
-	font: 9px arial black, calibri;
+	font: 9px "Arial Black", Calibri, Arial, sans-serif;
 	text-transform: uppercase;
 	color: #FFF;
 	background: #2E498C;
@@ -180,10 +290,7 @@ body {
 	border-bottom: 1px solid #fff;
 	padding-top: 2px;
 	text-align: center;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	wrap-option: wrap
+	overflow: hidden; /* keeps the floated window-buttons image inside the bar */
 }
 
 .img-right {
@@ -192,17 +299,36 @@ body {
 	padding-bottom: 2px;
 }
 
-a:link, a:visited, a:active {
-	color: #2F498C;
-	text-decoration: none;
+
+
+/* Phones and narrow windows */
+@media (max-width: 800px) {
+	.container {
+		width: 95%;
+	}
+
+	.horizontal-container {
+		flex-direction: column;
+	}
+
+	.left,
+	.content {
+		width: 100%;
+	}
+
+	.navi {
+		min-width: 60px;
+	}
 }
 
-a {
-	color: #2F498C;
+dialog {
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: #222;
+	text-shadow: 0 0 1px #bbb;
 }
 
-a:hover {
-	color: #444;
+dialog::backdrop {
+	background: rgba(0, 0, 0, 0.3);
 }
-
-

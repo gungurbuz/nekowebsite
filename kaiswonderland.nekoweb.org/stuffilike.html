@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-	<link href="http://fonts.googleapis.com/css?family=Megrim|Lato" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>stuff i like</title>
+	<link href="https://fonts.googleapis.com" rel="preconnect">
+	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="uhhstyle.css">
-	<script src="stuffilike.js"></script>
+	<script src="stuffilike.js" defer></script>
+	<link rel="icon" href="favicon.gif" type="image/gif">
 </head>
 <body>
 
-<div class="container" style="">
+<div class="container">
 	<div class="header-container">
 		<div class="header">kaiswonderland</div>
 	</div>
@@ -26,11 +25,12 @@
 	<div class="navigation">
 		<a class="navi" href="index.html">back</a>
 	</div>
+
 	<div class="horizontal-container">
 		<div class="left">
 			<div class="window">
 				<div class="title">
-					games <img src="assets/window-buttons.png" class="img-right">
+					games <img src="assets/window-buttons.png" class="img-right" alt="">
 				</div>
 				<div class="box">
 					i mainly play zenless zone zero, and sometimes honkai star rail and genshin impact. outside of gachas, i play valorant and war thunder.
@@ -42,11 +42,23 @@
 					genshin: 742146543 <br>
 				</div>
 			</div>
-		</div>
-		<div class="content">
-
 			<div class="window">
-				<div class="title">ships <img src="assets/window-buttons.png" class="img-right"></div>
+				<div class="title">
+					hobbies <img src="assets/window-buttons.png" class="img-right" alt="">
+				</div>
+				<div class="box">
+					i love trains! and trainspotting! some of my favorite trains/trams are:
+					<br>
+					<a class="navi" href="https://de.wikipedia.org/wiki/GT8-100D/2S-M" target="_blank">GT8-100D/2S-M</a>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="content">
+			<div class="window">
+				<div class="title">ships <img src="assets/window-buttons.png" class="img-right" alt=""></div>
 				<div class="box">
 					overwatch:
 					illari x kiriko (sunshrine4life)!!!!!
@@ -101,67 +113,82 @@
 					-->
 				</div>
 			</div>
+
 			<div class="window">
-				<div class="title">enka.network profiles <img src="assets/window-buttons.png" class="img-right">
+				<div class="title">my playlist <img src="assets/window-buttons.png" class="img-right" alt=""></div>
+				<div class="box">
+					peep the playlist &#x1F440;
+					<br><br>
+					<iframe title="Spotify playlist"
+									style="border-radius:12px; border:0; display:block;"
+									src="https://open.spotify.com/embed/playlist/0WzzzZn2hZSXYvxkNzUufa?utm_source=generator&si=e7138f0654c24e90"
+									width="100%" height="352"
+									allowfullscreen
+									allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+									loading="lazy"></iframe>
+				</div>
+			</div>
+
+			<div class="window">
+				<div class="title">enka.network profiles <img src="assets/window-buttons.png" class="img-right" alt="">
 				</div>
 				<div class="box">
-
-
 					<div class="navigation">
-						<a class="navi" onclick="show('zzz')" onmouseover="this.style.cursor='pointer'">
-							zzz
-						</a>
-						<a class="navi" onclick="show('hsr')" onmouseover="this.style.cursor='pointer'">
-							hsr
-						</a>
-						<a class="navi" onclick="show('genshin')" onmouseover="this.style.cursor='pointer'">
-							genshin
-						</a>
-
+						<button type="button" class="navi" data-target="zzz" aria-pressed="false">zzz</button>
+						<button type="button" class="navi" data-target="hsr" aria-pressed="false">hsr</button>
+						<button type="button" class="navi" data-target="genshin" aria-pressed="false">genshin</button>
+						<a class="navi" href="https://statshark.net/player/39973609" target="_blank" rel="noopener">war thunder</a>
 					</div>
 				</div>
 			</div>
 		</div>
 
+
 	</div>
+
+	<!-- Only one of these is shown at a time (see stuffilike.js).
+	     The iframes use loading="lazy", so a hidden one isn't fetched until you open it. -->
 	<div id="enkapages">
+		<div class="window" id="zzz" hidden>
+			<div class="title">
+				zzz <img src="assets/window-buttons.png" class="img-right" alt="">
+			</div>
+			<div class="box">
+				<iframe src="https://enka.network/u/kaiswonderland/1PJx0w/1201/6394864/?embed"
+				        title="Zenless Zone Zero profile on enka.network"
+				        style="width: 1100px; height: 700px"
+				        loading="lazy"></iframe>
+			</div>
+		</div>
 
-	</div>
-	<div class="window" id="zzz" style="display: none">
-		<div class="title">
-			zzz <img src="assets/window-buttons.png" class="img-right">
+		<div class="window" id="hsr" hidden>
+			<div class="title">
+				hsr <img src="assets/window-buttons.png" class="img-right" alt="">
+			</div>
+			<div class="box">
+				<iframe src="https://enka.network/u/kaiswonderland/1vWQUz/1224/4014811/?embed"
+				        title="Honkai: Star Rail profile on enka.network"
+				        style="width: 1100px; height: 700px"
+				        loading="lazy"></iframe>
+			</div>
 		</div>
-		<div class="box">
-			<iframe src="https://enka.network/u/kaiswonderland/1PJx0w/1201/6394864/?embed" style="width: 1100px; height: 700px"
-			        loading="lazy">
-			</iframe>
-		</div>
-	</div>
-	<div class="window" id="hsr" style="display: none">
-		<div class="title">
-			hsr <img src="assets/window-buttons.png" class="img-right">
-		</div>
-		<div class="box">
-			<iframe src="https://enka.network/u/kaiswonderland/1vWQUz/1224/4014811/?embed" style="width: 1100px; height: 700px"
-			        loading="lazy">
-			</iframe>
-		</div>
-	</div>
-	<div class="window" id="genshin" style="display: none">
-		<div class="title">
-			genshin <img src="assets/window-buttons.png" class="img-right">
-		</div>
-		<div class="box">
-			<iframe src="https://enka.network/u/kaiswonderland/2Zc6nG/10000023/4014826/?embed" style="width: 1100px; height: 700px"
-			        loading="lazy">
-			</iframe>
+
+		<div class="window" id="genshin" hidden>
+			<div class="title">
+				genshin <img src="assets/window-buttons.png" class="img-right" alt="">
+			</div>
+			<div class="box">
+				<iframe src="https://enka.network/u/kaiswonderland/2Zc6nG/10000023/4014826/?embed"
+				        title="Genshin Impact profile on enka.network"
+				        style="width: 1100px; height: 700px"
+				        loading="lazy"></iframe>
+			</div>
 		</div>
 	</div>
-	<br>
-	<p> Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> modified by
-		<a href="http://github.com/gungurbuz" target="_blank">me</a><br>
+
+	<p>Layout made by <a href="http://itinerae.neocities.org" target="_blank" rel="noopener">Itinerae</a> modified by
+		<a href="http://github.com/gungurbuz" target="_blank" rel="noopener">me</a></p>
 </div>
-
 
 </body>
 </html>

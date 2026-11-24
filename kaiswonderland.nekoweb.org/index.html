@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-	<link href="http://fonts.googleapis.com/css?family=Megrim|Lato" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>kaiswonderland!</title>
-	<link href="uhhstyle.css" rel="stylesheet">
-	<link href="crt.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com" rel="preconnect">
+	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="uhhstyle.css">
+	<link rel="icon" href="favicon.gif" type="image/gif">
 </head>
+
 <body>
 
 
@@ -29,9 +30,10 @@
 
 	<div class="navigation">
 		<a class="navi" href="stuffilike.html">things i like</a>
-		<a class="navi" href="ibstuff.html">ib stuff</a>
-		<a class="navi" href="">empty link</a>
-		<a class="navi" href="">empty link</a>
+		<a class="navi" href="trias.html">am i late?</a>
+		<a class="navi" href="trips.html">my trips</a>
+		<a class="navi" href="board.html">new design test</a>
+		<button type="button" class="navi" data-error="this page doesn't exist yet. sorry!">empty link</button>
 	</div>
 
 	<div class="horizontal-container">
@@ -44,7 +46,7 @@
 				stuff i do! <img src="assets/window-buttons.png" class="img-right"></div>
 			<div class="box">
 				I have a github! its mostly nonfunctional attempts at java with some mildly useful apps (such as a spotify listening history analyzer! in java!)
-				you can also find my LaTeX template and after July 6th 2025, my IB internal assessments and extended essay! did i mention how much i love LaTeX?
+				you can also find my LaTeX template and after July 6th 2025, my IB internal assessments and extended essay!
 			</div>
 
 
@@ -66,6 +68,7 @@
 				<img src="assets/buttons/buttonWikia.gif">
 				<img src="assets/buttons/buttonYuri.png">
 				<img src="assets/buttons/rainbow_bev.gif">
+				<img src="assets/buttons/underscoresbutton.png">
 				<a href="https://pawpyrus.art"><img src="https://pawpyrus.art/graphics/siteButton.gif" height="31px" width="88px"></a>
 				<a href="https://guh.nekoweb.org/" target="_blank"><img src="https://guh.nekoweb.org/myguhsite.gif"></a>
 			</div>
@@ -75,6 +78,15 @@
 				my webrings <img src="assets/window-buttons.png" class="img-right"></div>
 			<div class="box">
 				<script src="https://transring.neocities.org/ring.js"></script>
+			</div>
+
+			<div class="title">
+				visitors <img src="assets/window-buttons.png" class="img-right" alt="">
+			</div>
+			<div class="box">
+				you are visitor #<span id="views">------</span>
+				<br>
+				<span id="followers">-</span> followers
 			</div>
 
 
@@ -88,7 +100,7 @@
 				title <img src="assets/window-buttons.png" class="img-right"></div>
 			<div class="box">
 
-				hello!!! i'm kai, i use she/her pronouns and i'm a first year mechanical engineering studying in germany! servus!
+				hello!!! i'm kai, i'm a first year mechanical engineering studying in germany! servus!
 				<br>
 				this page is meant as a cardd replacement while also being an excuse for me to learn html and css.<br><br>
 
@@ -161,6 +173,58 @@
 
 
 </div>
+
+<dialog id="error-dialog" aria-labelledby="error-title">
+	<div class="window" style="width: 280px;">
+		<div class="title">
+			<span id="error-title">error</span>
+			<img src="assets/window-buttons.png" class="img-right" alt="">
+		</div>
+		<div class="box" style="text-align: left;">
+			<p id="error-text"></p>
+			<div style="text-align: center;">
+				<button type="button" class="navi" id="error-ok">ok</button>
+			</div>
+		</div>
+	</div>
+</dialog>
+
+<script>
+	// Error box for the empty buttons
+	document.addEventListener("click", function (e) {
+		const btn = e.target.closest("[data-error]");
+		if (btn) {
+			const dialog = document.getElementById("error-dialog");
+			if (typeof dialog.showModal !== "function") {
+				alert(btn.dataset.error);
+				return;
+			}
+			document.getElementById("error-text").textContent = btn.dataset.error;
+			dialog.showModal();
+		} else if (e.target.id === "error-ok") {
+			document.getElementById("error-dialog").close();
+		}
+	});
+
+	// Nekoweb visitor counter
+	async function loadStats() {
+		const names = ["kaiswonderland", "kaiswonderland.nekoweb.org"];
+		for (const name of names) {
+			try {
+				const res = await fetch("https://nekoweb.org/api/site/info/" + name);
+				if (!res.ok) continue;
+				const data = await res.json();
+				document.getElementById("views").textContent = String(data.views).padStart(6, "0");
+				document.getElementById("followers").textContent = data.followers;
+				return;
+			} catch (e) {
+				// try the next name
+			}
+		}
+		document.getElementById("views").textContent = "???";
+	}
+	loadStats();
+</script>
 
 </body>
 </html>
