@@ -1,233 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>kaiswonderland!</title>
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="uhhstyle.css">
-	<link rel="icon" href="favicon.gif" type="image/gif">
+	<title>kaiswonderland: menu</title>
+	<link rel="stylesheet" href="board.css">
+	<script src="board.js" defer></script>
 </head>
-
 <body>
 
-
-<div class="container">
-	<!--crt effect div-->
-	<!--<div class="crt">-->
-
-
-	<div class="header-container">
-		<div class="header">kaiswonderland</div>
-	</div>
-
-	<div class="siteurl-container">
-		<div class="siteurl"> https://kaiswonderland.nekoweb.org</div>
-	</div>
-
-	<div class="navigation">
-		<a class="navi" href="stuffilike.html">things i like</a>
-		<a class="navi" href="trias.html">am i late?</a>
-		<a class="navi" href="trips.html">my trips</a>
-		<a class="navi" href="board.html">new design test</a>
-		<button type="button" class="navi" data-error="this page doesn't exist yet. sorry!">empty link</button>
-	</div>
-
-	<div class="horizontal-container">
-
-
-		<div class="left">
-
-
-			<div class="title">
-				stuff i do! <img src="assets/window-buttons.png" class="img-right"></div>
-			<div class="box">
-				I have a github! its mostly nonfunctional attempts at java with some mildly useful apps (such as a spotify listening history analyzer! in java!)
-				you can also find my LaTeX template and after July 6th 2025, my IB internal assessments and extended essay!
-			</div>
-
-
-			<div class="title">
-				github <img src="assets/window-buttons.png" class="img-right"></div>
-			<div class="box">
-				<a href="https://github.com/gungurbuz"><img src="assets/buttons/githubbutton.png" height="31px" width="88px"></a>
-			</div>
-
-
-			<div class="title">
-				buttons!! <img src="assets/window-buttons.png" class="img-right">
-			</div>
-			<div class="box">
-				<img src="assets/buttons/any_browser.gif">
-				<img src="assets/buttons/buttonQueer.png">
-				<img src="assets/buttons/buttonGender.gif">
-				<img src="assets/buttons/buttonPiracy.gif">
-				<img src="assets/buttons/buttonWikia.gif">
-				<img src="assets/buttons/buttonYuri.png">
-				<img src="assets/buttons/rainbow_bev.gif">
-				<img src="assets/buttons/underscoresbutton.png">
-				<a href="https://pawpyrus.art"><img src="https://pawpyrus.art/graphics/siteButton.gif" height="31px" width="88px"></a>
-				<a href="https://guh.nekoweb.org/" target="_blank"><img src="https://guh.nekoweb.org/myguhsite.gif"></a>
-			</div>
-
-
-			<div class="title">
-				my webrings <img src="assets/window-buttons.png" class="img-right"></div>
-			<div class="box">
-				<script src="https://transring.neocities.org/ring.js"></script>
-			</div>
-
-			<div class="title">
-				visitors <img src="assets/window-buttons.png" class="img-right" alt="">
-			</div>
-			<div class="box">
-				you are visitor #<span id="views">------</span>
-				<br>
-				<span id="followers">-</span> followers
-			</div>
-
-
+<main class="board">
+	<header class="board-head">
+		<h1 class="stop">Kaiswonderland</h1>
+		<div class="screen screen-clock">
+			<div class="clock" id="clock" aria-label="current time">--<span class="colon">:</span>--</div>
 		</div>
+	</header>
 
-
-		<div class="content">
-
-
-			<div class="title">
-				title <img src="assets/window-buttons.png" class="img-right"></div>
-			<div class="box">
-
-				hello!!! i'm kai, i'm a first year mechanical engineering studying in germany! servus!
-				<br>
-				this page is meant as a cardd replacement while also being an excuse for me to learn html and css.<br><br>
-
-				there's not much here... yet... <br>
-				once i wrap up my exams i'll try to actually learn html and also start doing stuff outside of just studying so stay tuned i suppose!
-
-			</div>
-
-			<div class="title">
-				guestbook <img src="assets/window-buttons.png" class="img-right">
-			</div>
-			<div class="box">
-				<iframe
-						src="https://kaiswonderland.atabook.org/"
-						title="https://kaiswonderland.atabook.org/"
-						style="display:block;width:100%;height:500px;border:none;">
-				</iframe>
-			</div>
-
-			<div class="title">
-				johnvertisement
-			</div>
-
-			<div class="box">
-				<p>
-					<iframe src="https://john.citrons.xyz/embed?ref=kaiswonderland.nekoweb.org" style="margin-left:auto;display:block;margin-right:auto;max-width:732px;width:100%;height:94px;border:none;"></iframe>
-				</p>
-			</div>
-
-		</div>
-		<br>
-
-
-	</div>
-	<p> Layout made by <a href="http://itinerae.neocities.org" target="_blank">Itinerae</a> modified by
-		<a href="http://github.com/gungurbuz" target="_blank">me</a><br>
-
-		<!--
-
-		<div style="width:40px; height:40px; position:absolute; bottom:0px; left:0px;">
-			<div id="winamp-container"></div>
-			<script>
-				const Winamp = window.Webamp;
-				// All configuration options are optional.
-				const webamp = new Webamp({
-					// Optional.
-					initialTracks: [
-
-						/*{
-							metaData: {
-								artist: "Mitski",
-								title: "Nobody",
-							},
-							url: "assets/nobody.mp3",
-						},
-		*/
-					],
-
-					initialSkin: {
-						url: "assets/xp.wsz"
-					},
-
-				});
-				webamp.renderWhenReady(document.getElementById('winamp-container'));
-			</script>
-		</div>
-		-->
-		<!--crt effect div-->
-		<!--</div>-->
-
-
-</div>
-
-<dialog id="error-dialog" aria-labelledby="error-title">
-	<div class="window" style="width: 280px;">
-		<div class="title">
-			<span id="error-title">error</span>
-			<img src="assets/window-buttons.png" class="img-right" alt="">
-		</div>
-		<div class="box" style="text-align: left;">
-			<p id="error-text"></p>
-			<div style="text-align: center;">
-				<button type="button" class="navi" id="error-ok">ok</button>
-			</div>
-		</div>
-	</div>
-</dialog>
-
-<script>
-	// Error box for the empty buttons
-	document.addEventListener("click", function (e) {
-		const btn = e.target.closest("[data-error]");
-		if (btn) {
-			const dialog = document.getElementById("error-dialog");
-			if (typeof dialog.showModal !== "function") {
-				alert(btn.dataset.error);
-				return;
-			}
-			document.getElementById("error-text").textContent = btn.dataset.error;
-			dialog.showModal();
-		} else if (e.target.id === "error-ok") {
-			document.getElementById("error-dialog").close();
-		}
-	});
-
-	// Nekoweb visitor counter
-	async function loadStats() {
-		const names = ["kaiswonderland", "kaiswonderland.nekoweb.org"];
-		for (const name of names) {
-			try {
-				const res = await fetch("https://nekoweb.org/api/site/info/" + name);
-				if (!res.ok) continue;
-				const data = await res.json();
-				document.getElementById("views").textContent = String(data.views).padStart(6, "0");
-				document.getElementById("followers").textContent = data.followers;
-				return;
-			} catch (e) {
-				// try the next name
-			}
-		}
-		document.getElementById("views").textContent = "???";
-	}
-	loadStats();
-</script>
+	<nav class="screen screen-departures" aria-label="site menu">
+		<ul class="departures">
+			<li><a class="row" href="home.html"><span class="line">S1</span><span class="dest">Home</span><span class="when flash">sofort</span></a></li>
+			<li><a class="row" href="stuffilike.html"><span class="line">S5</span><span class="dest">Things I Like</span><span class="when">in 2 min</span></a></li>
+			<li><a class="row" href="trias.html"><span class="line">2</span><span class="dest">Am I Late</span><span class="when">in 5 min</span></a></li>
+			<li><a class="row" href="trips.html"><span class="line">S8</span><span class="dest">My Trips</span><span class="when">in 8 min</span></a></li>
+			<li><a class="row" href=""><span class="line">E</span><span class="dest flash" data-flash="entfällt">About (Me)</span> <span class="when" id="last-when"></span></a></li>
+		</ul>
+	</nav>
+</main>
 
 </body>
 </html>
-            
-            
-              
