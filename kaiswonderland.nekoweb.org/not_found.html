@@ -3,23 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Not found.</title>
-	<link rel="stylesheet" href="uhhstyle.css">
-	<link rel="icon" href="favicon.gif" type="image/gif">
+	<title>kaiswonderland: menu</title>
+	<link rel="stylesheet" href="board.css">
+	<script src="board.js" defer></script>
 </head>
 <body>
-<div class="container" style="max-width: 420px;">
-	<div class="window" style="width: 100%;">
-		<div class="title">404 or whatever</div>
-		<div class="box" style="background:#0000aa; color:#fff; text-shadow:none; text-align:left; font-family:monospace; padding:12px;">
-			a problem has been detected and kaiswonderland has been shut down.
-			<br><br>
-			PAGE_NOT_FOUND
-			<br><br>
-			<img src="marimakinami.gif" alt="" style="width:120px; display:block; margin:0 auto 8px;">
-			<a href="home.html" style="color:#fff;">press here to restart</a>_
+
+<main class="board">
+	<header class="board-head">
+		<h1 class="stop">Kaiswonderland</h1>
+		<div class="screen screen-clock">
+			<div class="clock" id="clock" aria-label="current time">--<span class="colon">:</span>--</div>
 		</div>
-	</div>
-</div>
+	</header>
+
+	<nav class="screen screen-departures" aria-label="site menu">
+		<ul class="departures">
+			<li><a class="row"><span class="line">19</span><span class="dest flash" data-flash="entfällt">Error</span><span class="when" id="now-when"></span></a></li>
+			<li><a class="row"><span class="line">S51</span><span class="dest flash" data-flash="entfällt">404</span><span class="when" id="plus2-when"></span></a></li>
+			<li><a class="row"><span class="line">2</span><span class="dest flash" data-flash="entfällt">Not Found</span><span class="when" id="plus5-when"></span></a></li>
+			<li><a class="row" href="index.html"><span class="line">E</span><span class="dest">Go Back</span> <span class="when" id="when">in 9 min</span></a></li>
+		</ul>
+	</nav>
+</main>
+
 </body>
 </html>

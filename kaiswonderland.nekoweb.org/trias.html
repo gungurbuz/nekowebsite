@@ -4,43 +4,37 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>am i late?</title>
-	<link href="https://fonts.googleapis.com" rel="preconnect">
-	<link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
-	<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="uhhstyle.css">
+	<link rel="stylesheet" href="platform.css">
 	<script src="trias.js" defer></script>
-	<link rel="icon" href="favicon.gif" type="image/gif">
 </head>
 <body>
 
-<div class="container">
-	<div class="header-container">
-		<div class="header">kaiswonderland</div>
-	</div>
+<h1 class="visually-hidden">am i late?</h1>
 
-	<div class="siteurl-container">
-		<div class="siteurl"> https://kaiswonderland.nekoweb.org</div>
-	</div>
+<main class="display" id="display" aria-label="platform information display">
+	<div class="screen">
 
-	<div class="navigation">
-		<a class="navi" href="home.html">back</a>
-	</div>
-
-	<div class="horizontal-container">
-		<div class="contentfull">
-			<div class="window">
-				<div class="title">see if i'm going to be late for school <img src="assets/window-buttons.png" class="img-right" alt=""></div>
-				<div class="box">
-					<div id="status" style="font-size: 20px; padding: 12px 0;" aria-live="polite">checking...</div>
-					<small>updates every minute</small>
-				</div>
+		<!-- The train below is a placeholder. Only the delay is real. -->
+		<div class="time-cell">
+			<div class="time">
+				<span id="sched" data-time="07:45">07:45</span><span class="delay" id="delay" hidden></span>
 			</div>
+			<div class="train">RE 18196</div>
 		</div>
-	</div>
 
-	<p>Layout made by <a href="http://itinerae.neocities.org" target="_blank" rel="noopener">Itinerae</a> modified by
-		<a href="http://github.com/gungurbuz" target="_blank" rel="noopener">me</a></p>
-</div>
+		<div class="ticker" id="ticker" role="status">
+			<span class="ticker-text" id="ticker-text">+++ checking... +++</span>
+		</div>
+
+		<div class="via">Pforzheim Hbf - Durlach</div>
+
+		<div class="platform"><span class="visually-hidden">platform </span>4</div>
+
+		<div class="dest">Durlacher Tor/KIT Campus Süd</div>
+	</div>
+</main>
+
+<p class="back"><a href="index.html">&larr; back</a></p>
 
 </body>
 </html>
