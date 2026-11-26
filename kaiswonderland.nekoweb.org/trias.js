@@ -2,15 +2,19 @@ const WORKER_URL = "https://trias-check.gunguneypro.workers.dev";
 
 // Random messages that scroll after the real status. Add, remove or edit as you like.
 const MESSAGES = [
-	"Wir wünschen Ihnen eine angenehme Reise",
-	"Bitte zurückbleiben, der Zug fährt ein",
-	"Bitte beachten Sie die geänderte Wagenreihung",
-	"Der Zug überlegt noch",
-	"Fahrräder bitte nicht in der Mensa abstellen",
 	"Dieser Zug hält nicht an Sorgen",
 	"Heute im Angebot: Döner mit alles im Bordbistro",
 	"Bitte nicht mit dem Zugführer sprechen, er ist auch müde",
-    "Fährt heute ohne Halt an Ihrem Bahnhof"
+    "Fährt heute ohne Halt an Ihrem Bahnhof",
+    "Deutschlandticket gilt heute nur unter Vorbehalt",
+    "Heute nur Lokomotive – Bitte nicht einsteigen",
+    "Heute ohne Triebfahrzeug – Zugkräftige Fahrgäste melden sich bitte beim Zugchef",
+    "Heute ohne Zug – Wegbeschreibungen für Fußgänger erhalten Sie an der DB Reisezentrum",
+    "Heute ohne Sie – Alle anderen Fahrgäste, bitte einsteigen",
+    "Verkehrt heute als S-Bahn Südwest – Haltewünsche bitte beim Zugpersonal anmelden",
+    "Verkehrt heute als Leerfahrt – Bitte nicht einsteigen",
+    "Abfahrt heute zu unbestimmter Zeit – Bitte informieren Sie sich durch innere Einkehr",
+    "Heute von einem Gleis"
 ];
 
 const SCROLL_SPEED = 80; // pixels per second
