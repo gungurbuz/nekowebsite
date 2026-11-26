@@ -14,23 +14,27 @@
 <main class="display" id="display" aria-label="platform information display">
 	<div class="screen">
 
-		<!-- The train below is a placeholder. Only the delay is real. -->
+		<!-- The train is a placeholder (trias.js picks a random one on load). Only the delay is real. -->
 		<div class="time-cell">
 			<div class="time">
 				<span id="sched" data-time="07:45">07:45</span><span class="delay" id="delay" hidden></span>
 			</div>
-			<div class="train">RE 18196</div>
+			<div class="train" id="train">RE 18196</div>
 		</div>
 
-		<div class="ticker" id="ticker" role="status">
+		<!-- Screen readers get only the real status from this hidden element,
+		     not the scrolling decoration. -->
+		<span class="visually-hidden" id="status-sr" role="status">checking</span>
+
+		<div class="ticker" id="ticker" aria-hidden="true">
 			<span class="ticker-text" id="ticker-text">+++ checking... +++</span>
 		</div>
 
-		<div class="via">Pforzheim Hbf - Durlach</div>
+		<div class="via" id="via">via Durlach</div>
 
 		<div class="platform"><span class="visually-hidden">platform </span>4</div>
 
-		<div class="dest">Durlacher Tor/KIT Campus Süd</div>
+		<div class="dest" id="dest">Stgt.- Untertürkheim</div>
 	</div>
 </main>
 

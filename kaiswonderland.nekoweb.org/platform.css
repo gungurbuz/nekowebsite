@@ -17,9 +17,8 @@
 	--blue: #2e37a3;                    /* bottom half of the screen */
 	--divider: #141b78;                 /* bar between the two halves */
 	--text: #ffffff;
-	--ticker-bg: #f2f1e4;               /* light strip with the status text */
+	--ticker-bg: #ffffff;               /* white strip with the scrolling text */
 	--ticker-text: #15152b;
-	--ticker-late: #ffd33d;             /* the strip turns yellow when you're late */
 	--sky: #202328;                     /* page background */
 }
 
@@ -144,24 +143,17 @@ body {
 	line-height: 1.5;
 }
 
+/* The text starts just outside the right edge and scrolls out on the left.
+   trias.js sets the animation duration so the speed stays the same for any text length. */
 .ticker-text {
 	display: inline-block;
-	padding: 0 .6em;
-}
-
-/* Only scrolls when the text doesn't fit (set by trias.js) */
-.ticker.scroll .ticker-text {
-	padding-left: 100%;
-	animation: scroll 14s linear infinite;
+	padding: 0 .6em 0 100%;
+	animation: scroll 20s linear infinite;
 }
 
 @keyframes scroll {
 	from { transform: translateX(0); }
 	to   { transform: translateX(-100%); }
-}
-
-.state-late .ticker {
-	background: var(--ticker-late);
 }
 
 /* ---------- Via, platform, destination ---------- */
@@ -170,6 +162,7 @@ body {
 	align-self: end;
 	padding: 0 .6rem clamp(.4rem, 1.2vw, .8rem) 0;
 	font-size: clamp(.95rem, 2.8vw, 1.5rem);
+	line-height: 1.15;
 }
 
 .platform {
@@ -209,8 +202,15 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.ticker.scroll .ticker-text {
+	.ticker-text {
 		animation: none;
 		padding-left: .6em;
 	}
+}
+
+/* ---------- Empty board: same panel and layout, just no information ---------- */
+.state-idle .screen > :not(.ticker):not(.visually-hidden),
+.state-loading .screen > :not(.visually-hidden) {
+	color: transparent;
+	user-select: none;
 }
