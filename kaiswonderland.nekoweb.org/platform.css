@@ -1,0 +1,216 @@
+/* Train platform information display theme for trias.html.
+   Standalone: do NOT load this together with uhhstyle.css or board.css. */
+
+@font-face {
+	font-family: "Bahnschrift Board";
+	src: url("assets/bahnschrift.ttf") format("truetype");
+	font-weight: 300 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--frame-top: #2434b4;               /* the blue casing */
+	--frame-bottom: #16208a;
+	--bezel: #0e1458;                   /* dark edge around the screen */
+	--purple: #5c2d88;                  /* top half of the screen */
+	--blue: #2e37a3;                    /* bottom half of the screen */
+	--divider: #141b78;                 /* bar between the two halves */
+	--text: #ffffff;
+	--ticker-bg: #ffffff;               /* white strip with the scrolling text */
+	--ticker-text: #15152b;
+	--sky: #202328;                     /* page background */
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1.2rem;
+	padding: 1rem;
+	background: var(--sky);
+	color: var(--text);
+	font-family: "Bahnschrift Board", Bahnschrift, "Roboto Condensed", Arial, sans-serif;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ---------- The casing ---------- */
+.display {
+	width: min(96vw, 880px);
+	padding: clamp(.5rem, 1.6vw, .9rem);
+	background: linear-gradient(var(--frame-top), var(--frame-bottom));
+	border-radius: 10px;
+	box-shadow:
+		0 0 0 3px var(--bezel),
+		0 24px 48px rgba(0, 0, 0, .55);
+}
+
+/* ---------- The screen ---------- */
+.screen {
+	position: relative;
+	display: grid;
+	grid-template-columns: clamp(11.5rem, 36vw, 20rem) minmax(0, 1fr) clamp(3rem, 10vw, 6rem);
+	grid-template-areas:
+		"time ticker platform"
+		"time via    platform"
+		"dest dest   dest";
+	background: var(--purple);
+	border: 4px solid var(--bezel);
+	overflow: hidden;
+}
+
+/* Module seams every quarter of the width + a fine pixel grid.
+   Make the .14 values smaller for a smoother screen. */
+.screen::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background:
+		linear-gradient(90deg, transparent calc(100% - 2px), rgba(0, 0, 0, .4) 0) 0 0 / 25% 100%,
+		linear-gradient(rgba(0, 0, 0, .14) 1px, transparent 1px) 0 0 / 3px 3px,
+		linear-gradient(90deg, rgba(0, 0, 0, .14) 1px, transparent 1px) 0 0 / 3px 3px;
+}
+
+/* ---------- Train time + name ---------- */
+.time-cell {
+	grid-area: time;
+	padding: clamp(.4rem, 1.6vw, .9rem) clamp(.5rem, 2vw, 1rem);
+}
+
+.time {
+	display: flex;
+	align-items: flex-end;   /* the delay box sits level with the bottom of the time */
+	gap: .3em;
+	font-size: clamp(2.2rem, 7.5vw, 4.2rem);
+	font-weight: 600;
+	line-height: 1;
+	white-space: nowrap;
+}
+
+/* The white box beside the time with the expected (delayed) time */
+.delay {
+	padding: .08em .3em;
+	margin-bottom: .1em;
+	font-size: .42em;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: .02em;
+	background: #ffffff;
+	color: #111111;
+	box-shadow: inset 0 0 0 2px rgba(0, 0, 0, .2);
+}
+
+.delay[hidden] {
+	display: none;
+}
+
+.train {
+	margin-top: .3em;
+	font-size: clamp(.9rem, 2.6vw, 1.4rem);
+	font-weight: 400;
+}
+
+/* ---------- Status strip ---------- */
+.ticker {
+	grid-area: ticker;
+	align-self: start;
+	margin: clamp(.35rem, 1.2vw, .7rem) clamp(.4rem, 1.5vw, 1rem) 0 0;
+	overflow: hidden;
+	white-space: nowrap;
+	background: var(--ticker-bg);
+	color: var(--ticker-text);
+	font-size: clamp(.85rem, 2.4vw, 1.3rem);
+	font-weight: 500;
+	line-height: 1.5;
+}
+
+/* The text starts just outside the right edge and scrolls out on the left.
+   trias.js sets the animation duration so the speed stays the same for any text length. */
+.ticker-text {
+	display: inline-block;
+	padding: 0 .6em 0 100%;
+	animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+	from { transform: translateX(0); }
+	to   { transform: translateX(-100%); }
+}
+
+/* ---------- Via, platform, destination ---------- */
+.via {
+	grid-area: via;
+	align-self: end;
+	padding: 0 .6rem clamp(.4rem, 1.2vw, .8rem) 0;
+	font-size: clamp(.95rem, 2.8vw, 1.5rem);
+	line-height: 1.15;
+}
+
+.platform {
+	grid-area: platform;
+	align-self: start;
+	padding: clamp(.3rem, 1.2vw, .7rem) clamp(.5rem, 2vw, 1rem);
+	text-align: right;
+	font-size: clamp(2.2rem, 8vw, 4.6rem);
+	font-weight: 600;
+	line-height: 1;
+}
+
+.dest {
+	grid-area: dest;
+	padding: clamp(.8rem, 3vw, 1.6rem) clamp(.8rem, 3vw, 1.5rem);
+	background: var(--blue);
+	border-top: clamp(4px, .9vw, 9px) solid var(--divider);
+	font-size: clamp(1.6rem, 7.5vw, 4.2rem);
+	font-weight: 500;
+	line-height: 1.1;
+}
+
+/* ---------- Link below the display ---------- */
+.back {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.back a {
+	color: #aeb6ff;
+	text-underline-offset: 4px;
+}
+
+.back a:hover,
+.back a:focus-visible {
+	color: #ffffff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.ticker-text {
+		animation: none;
+		padding-left: .6em;
+	}
+}
+
+/* ---------- Empty board: same panel and layout, just no information ---------- */
+.state-idle .screen > :not(.ticker):not(.visually-hidden),
+.state-loading .screen > :not(.visually-hidden) {
+	color: transparent;
+	user-select: none;
+}

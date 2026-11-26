@@ -18,6 +18,23 @@ function renderClock() {
 	if (last) {
 		last.textContent = timeFmt.format(new Date(Date.now() + LAST_ROW_OFFSET_MIN * 60000));
 	}
+
+    const plus2 = document.getElementById("plus2-when");
+    if (plus2) {
+        plus2.textContent = timeFmt.format(new Date(Date.now() + 2 * 60000));
+    }
+
+    const now = document.getElementById("now-when");
+    if (now) {
+        now.textContent = timeFmt.format(new Date(Date.now()));
+    }
+
+    const plus5 = document.getElementById("plus5-when");
+    if (plus5) {
+        plus5.textContent = timeFmt.format(new Date(Date.now() + 5 * 60000));
+    }
+
+
 }
 
 renderClock();
